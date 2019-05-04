@@ -18,7 +18,7 @@ module.exports = {
                         //Exemple for 30km around Lyon
                         //.setArea({"lat": 43.685690799999996, "lng": 1.417239, "radius": 50000})
                             //.addSearchExtra("price", {min: 100, max: 600}) // will add a range of price
-                            //.addSearchExtra('real_estate_type', ["1", "Appartement"]) // will add enums for Meublé and Non meublé
+                            .addSearchExtra('real_estate_type', ["2", "Appartement"]) // will add enums for Meublé and Non meublé
                             .addSearchExtra('rooms', [rooms, rooms]) // Nbr de pièces
                             //.addSearchExtra('square', [square, square]); // superficie
 
