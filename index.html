@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Leboncoin Api</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  </head>
+
+  <body id="page-top">
+  
+
+    <div class="container-fluid p-0" style="margin-top: 20px">
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+            <h1 class="mb-0">Loyer
+                <span class="text-primary">Leboncoin</span>
+            </h1>
+            <!-- <form action='/result'  method='post' name='form1'>
+                <p>Zip code:<input type= 'number' name='zip_code'></p>
+                <p>Rooms:<input type='text' name='rooms'></p>
+                <p>Square:<input type='text' name='square'></p>
+                <p>Search:<input type='search_query' name='search_query'></p>
+                <input type='submit' value='submit'>
+                <INPUT type='reset'  value='reset'>
+            </form> -->
+            <form action='/result'  method='post' name='form1'>
+                <div class="form-group">
+                    <label for="zip_code">Zip code</label>
+                    <input type="number" name='zip_code' class="form-control" id="zip_code" aria-describedby="zip_code" placeholder="Le code postal">
+                </div>
+                <div class="form-group">
+                    <label for="rooms">Rooms</label>
+                    <input type="number" name='rooms' class="form-control" id="rooms" placeholder="Le nombre de pièces">
+                </div>
+                <div class="form-group">
+                    <label for="square">Square</label>
+                    <input type="number" name='square' class="form-control" id="square" placeholder="La surface en m²">
+                </div>
+                <div class="form-group">
+                    <label for="search_query">Search</label>
+                    <input type="text" name='search_query' class="form-control" id="search_query" placeholder="Le texte de recherche">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+            </form>
+      </section>
+
+  
+    </div>
+  </body>
+</html>
