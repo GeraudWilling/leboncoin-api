@@ -1,4 +1,10 @@
 const leboncoin = require('leboncoin-api');
+const path = require('path');
+
+
+function callback(res,path,result){
+    res.sendFile(path.join(__dirname, 'results.html',result));
+}
 
 module.exports = {
     search_function: function (search_query,zip_code,rooms,square,reply,res){
@@ -19,8 +25,10 @@ module.exports = {
                         //.setArea({"lat": 43.685690799999996, "lng": 1.417239, "radius": 50000})
                             //.addSearchExtra("price", {min: 100, max: 600}) // will add a range of price
                             .addSearchExtra('real_estate_type', ["2", "Appartement"]) // will add enums for Meublé and Non meublé
-                            .addSearchExtra('rooms', [rooms, rooms]) // Nbr de pièces
-                            //.addSearchExtra('square', [square, square]); // superficie
+                            if (typeof rooms !== 'undefined' && rooms){
+                                search.addSearchExtra('rooms', [rooms, rooms]) // Nbr de pièces
+                            }  
+                        //.addSearchExtra('square', [square, square]); // superficie
 
                         // Please check into categories & sub categories constants to know which are the sub categories to add into "addSearchExtra"
                         search.run().then(function (data) {
@@ -28,6 +36,7 @@ module.exports = {
                             console.log(data.pages); // the number of pages
                             console.log(data.nbResult); // the number of results for this search
                             //console.log(data.results.); // the array of results
+                            
                             data.results
                             // .filter(item => { //Filtrer à 10 m² autour de la surface renseignée
                             //     console.log(parseInt(square,10)-10 <=parseInt(item.attributes.square,10));
@@ -35,9 +44,11 @@ module.exports = {
                             //     parseInt(square,10) >= parseInt(item.attributes.square,10);
                             // })
                             .forEach(item => {
-                                console.log(parseInt(item.price,10));
-
-                                if(parseInt(square,10)-5 <=parseInt(item.attributes.square,10) &&
+                                if (typeof square == 'string' && !square.trim()){
+                                    nbRecherches++;
+                                    average+=item.price;
+                                    console.log(item.price);
+                                }else if(parseInt(square,10)-5 <=parseInt(item.attributes.square,10) &&
                                     parseInt(square,10)+5 >= parseInt(item.attributes.square,10)){
                                     nbRecherches++;
                                     average+=item.price;
@@ -45,13 +56,13 @@ module.exports = {
                                     //console.log(item.attributes.square);
                                 }
                             });
+                       
                             reply+= "<br/> Nb de Résultats: " + data.nbResult;
                             if(nbRecherches>0){
                                 reply+= "<br/> Prix médian: <b>" + average/nbRecherches+ "€ </b>" ;
+                                reply+= "<br/> <button ><a href='/'>Back</a></button>";
                             }
                             res.send(reply);
-                            console.log("***",average)
-                            console.log("***",nbRecherches)
 
                             // if(data.results.length){
                             //     data.results[0].getDetails().then(function (details) {
