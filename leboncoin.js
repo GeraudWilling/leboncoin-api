@@ -24,7 +24,6 @@ module.exports = {
 
                         // Please check into categories & sub categories constants to know which are the sub categories to add into "addSearchExtra"
                         search.run().then(function (data) {
-                            nbRecherches=data.nbResult;
                             //console.log(data.page); // the current page
                             console.log(data.pages); // the number of pages
                             console.log(data.nbResult); // the number of results for this search
@@ -39,15 +38,21 @@ module.exports = {
                                 console.log(parseInt(item.price,10));
 
                                 if(parseInt(square,10)-5 <=parseInt(item.attributes.square,10) &&
-                                parseInt(square,10)+5 >= parseInt(item.attributes.square,10)){
+                                    parseInt(square,10)+5 >= parseInt(item.attributes.square,10)){
+                                    nbRecherches++;
                                     average+=item.price;
                                     console.log(item.price);
                                     //console.log(item.attributes.square);
                                 }
                             });
-                            reply+= "<br/> Nb de Résultats: " + nbRecherches +
-                                "<br/> Prix médian: <b>" + average+ "€ </b>" ; 
+                            reply+= "<br/> Nb de Résultats: " + data.nbResult;
+                            if(nbRecherches>0){
+                                reply+= "<br/> Prix médian: <b>" + average/nbRecherches+ "€ </b>" ;
+                            }
                             res.send(reply);
+                            console.log("***",average)
+                            console.log("***",nbRecherches)
+
                             // if(data.results.length){
                             //     data.results[0].getDetails().then(function (details) {
                             //         console.log("*****",details); // the item 0 with more data such as description, all images, author, ...
