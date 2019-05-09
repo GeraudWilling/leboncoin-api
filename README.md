@@ -1,2 +1,3 @@
 # leboncoin-api
-Sample nodejs web app to get average rents in a city.
+Sample nodejs application to get an average rents in a city.
+The app is deployed on heroku.
