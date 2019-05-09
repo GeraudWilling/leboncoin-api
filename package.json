@@ -1,0 +1,16 @@
+{
+    "name": "leboncoin-api",
+    "version": "0.0.1",
+    "description": "leboncoin.fr API",
+    "main": "./server.js",
+    "dependencies": {
+        "leboncoin-api": "^0.0.35",
+        "express": "^4.16.4",
+        "http": "^0.0.0",
+        "body-parser": "^1.19.0"
+    },
+    "devDependencies": {},
+    "author": "Thomas Durieux",
+    "license": "MIT",
+    "readmeFilename": "README.md"
+}
