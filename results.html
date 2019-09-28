@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Leboncoin Api</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  </head>
+
+  <body id="page-top">
+    <a class="mbscreenphone phonelink" href="tel:+33620177344"><img class="phoneicon" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png"></a>
+
+
+    <div class="container-fluid p-0" style="margin-top: 20px">
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+            <h1 class="mb-0">Loyer
+                <span class="text-primary">Leboncoin</span>
+            </h1>
+            <ul class="list-group list-social-icons mb-0">
+                <li class="list-group-item">
+                    Zip code: <script>var name = "<%= zip_code %>";</script>
+                </li>
+                <li class="list-group-item">
+                    Type appartement: T<script>var name = "<%= rooms %>";</script>
+                </li>
+                <li class="list-group-item">
+                    Nb de Résultats: <script>var nbRecherches = "<%= nbRecherches %>";</script>
+                </li>
+                <li class="list-group-item">
+                    Prix median: <script>var average = "<%= average %>";</script>
+                </li>
+              </ul>
+      </section>
+
+  
+    </div>
+  </body>
+</html>
